@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="movie_details">Movie Details</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movie">Movie</string>
+    <string name="button">Button</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="popular">Popular</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="movie_poster">movie poster</string>
+    <string name="background_image">background image</string>
+    <string name="textview">TextView</string>
+    <string name="movie_details_pop">Movie details</string>
+    <string name="movie_details_top">Movie details</string>
+    <string name="release_date">Release date:</string>
+    <string name="genre">Genre:</string>
+</resources>
