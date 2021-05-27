@@ -3,13 +3,13 @@ package com.example.movies;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
-public class AppExecutors {
+public class Network {
     //Singleton pattern
-    private static AppExecutors instance;
+    private static Network instance;
 
-    public static AppExecutors getInstance() {
+    public static Network getInstance() {
         if (instance == null) {
-            instance = new AppExecutors();
+            instance = new Network();
         }
         return instance;
     }

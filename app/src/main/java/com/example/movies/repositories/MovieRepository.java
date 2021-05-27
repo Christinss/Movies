@@ -29,9 +29,6 @@ public class MovieRepository {
         movieApiClient = MovieApiClient.getInstance();
     }
 
-    public LiveData<List<MovieModel>> getMovies() {
-        return movieApiClient.getMovies();}
-
     public LiveData<List<MovieModel>> getPop() {
         return movieApiClient.getMoviesPop();}
 
@@ -39,13 +36,6 @@ public class MovieRepository {
         return movieApiClient.getMoviesTop();}
 
     //2 - Calling the method in repository
-    public void searchMoviesApi(String query, int pageNumber) {
-
-        mQuery = query;
-        mPageNumber = pageNumber;
-        movieApiClient.searchMoviesApi(query, pageNumber);
-    }
-
     public void searchMoviesPop(String query, int pageNumber) {
 
         mQuery = query;

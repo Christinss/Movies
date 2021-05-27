@@ -12,13 +12,6 @@ import retrofit2.http.Query;
 //client class that is receiving data objects from a service objects class
 public interface MovieApi {
     //Search for movies
-    @GET("/3/search/movie")
-    Call<MovieSearchResponse> searchMovie(
-            @Query("api_key") String key,
-            @Query("query") String query,
-            @Query("page") int page
-    );
-
     //Search by ID
     @GET("3/movie/{movie_id}?")
     Call<MovieModel> getMovie(

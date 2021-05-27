@@ -15,7 +15,6 @@ public class MovieViewHolderTop extends RecyclerView.ViewHolder implements View.
         TextView title;
         ImageView imageView;
 
-        //language, releaseDate;
 
         //Click listener
         OnMovieListenerTop onMovieListenerTop;
@@ -26,8 +25,6 @@ public class MovieViewHolderTop extends RecyclerView.ViewHolder implements View.
             title = itemView.findViewById(R.id.movie_title);
             imageView = itemView.findViewById(R.id.movie_img);
 
-            //language = itemView.findViewById(R.id.original_language);
-            //releaseDate = itemView.findViewById(R.id.movie_release);
 
             itemView.setOnClickListener(this);
 

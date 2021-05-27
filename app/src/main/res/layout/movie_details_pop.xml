@@ -49,10 +49,12 @@
 
         <ImageView
             android:id="@+id/poster_pop"
-            android:layout_width="80dp"
-            android:layout_height="110dp"
+            android:layout_width="160dp"
+            android:layout_height="220dp"
             android:contentDescription="@string/background_image"
             android:layout_marginStart="13dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/tv_title_details_pop"
             android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/joker_full"/>
@@ -63,14 +65,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="13dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="14dp"
-            android:layout_toEndOf="@id/poster_pop"
-            android:layout_above="@id/genre_pop"
+            android:layout_alignParentTop="true"
             android:fontFamily="sans-serif-condensed"
             android:text="@string/textview"
             android:textColor="@color/white"
-            android:textSize="20sp"/>
+            android:textSize="25sp"/>
 
         <TextView
             android:id="@+id/genre_pop"
@@ -140,9 +141,10 @@
             android:layout_below="@id/poster_pop"
             android:fontFamily="sans-serif-light"
             android:text="@string/textview"
+            android:textAlignment="textStart"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/poster_pop"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
     </RelativeLayout>

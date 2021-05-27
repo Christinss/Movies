@@ -19,14 +19,11 @@ import com.example.movies.viewmodels.MovieListViewModel;
 
 public class MovieListActivity extends AppCompatActivity implements OnMovieListenerPop, OnMovieListenerTop {
 
-    //Before running the app, Network Security config needs to be added
 
     //RecyclerView
-    //private RecyclerView recyclerView_category;
     private RecyclerView recyclerView_popular;
     private RecyclerView recyclerView_top;
 
-    //private CategoryAdapter categoryAdapter;
     private MoviePopularAdapter moviePopularRecyclerAdapter;
     private MovieTopRatedAdapter movieTopRatedRecyclerAdapter;
 
@@ -43,9 +40,6 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
-
         recyclerView_popular = findViewById(R.id.recyclerViewPop);
         recyclerView_top = findViewById(R.id.recyclerViewTop);
 
@@ -53,9 +47,8 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         movieListViewModel = new ViewModelProvider(this).get(MovieListViewModel.class);
 
         ConfigureRecyclerView();
-        //Calling the observers
-        //ObserveAnyChange();
 
+        //Calling the observers
         ObservePopularMovies();
 
         ObserveTopRatedMovies();
@@ -94,29 +87,13 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         });
     }
 
-    //Observer for any data change
-//    private void ObserveAnyChange() {
-//
-//        movieListViewModel.getMovies().observe(this, movieModels -> {
-//            //Observing for any data change
-//            if (movieModels != null) {
-//                for (MovieModel movieModel : movieModels) {
-//                    moviePopularRecyclerAdapter.setMoviesPop(movieModels);
-//                }
-//            }
-//
-//        });
-//
-//    }
-
     // 5 - Initializing RecyclerView and adding data to it
     private void ConfigureRecyclerView() {
-        //categoryAdapter = new CategoryAdapter(this);
+
         moviePopularRecyclerAdapter = new MoviePopularAdapter(this);
         movieTopRatedRecyclerAdapter = new MovieTopRatedAdapter(this);
 
-//        recyclerView_category.setAdapter(categoryAdapter);
-//        recyclerView_category.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
         recyclerView_popular.setAdapter(moviePopularRecyclerAdapter);
         recyclerView_popular.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
@@ -161,10 +138,5 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         startActivity(intent);
     }
 
-    @Override
-    public void onCategoryClick(String category) {
-
-    }
-    
 
 }

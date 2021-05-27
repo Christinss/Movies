@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-//This class is for getting multiple movies (Movie list) - popular
+////This class is for getting multiple movies (Movie list)
 public class MovieSearchResponse {
     @SerializedName("total_results")
     @Expose()
@@ -18,14 +18,11 @@ public class MovieSearchResponse {
     @Expose()
     private List<MovieModel> movies;
 
-//    //public int getTotal_count() {
-//        return total_count;
-//    }
-
     public List<MovieModel> getMovies() {
         return movies;
     }
 
+    @NotNull
     @Override
     public String toString() {
         return "MovieResponse{" +

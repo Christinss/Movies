@@ -29,39 +29,106 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="@string/background_image"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout_top"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_details_top"
-        app:srcCompat="@drawable/joker_full"/>
+        app:srcCompat="@drawable/joker_full" />
 
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/linearLayout_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="500dp"
         android:layout_gravity="bottom"
-        android:background="@drawable/shadow_back"
+        android:background="@color/black"
         android:orientation="vertical"
         android:padding="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <ImageView
+            android:id="@+id/poster_top"
+            android:layout_width="160dp"
+            android:layout_height="220dp"
+            android:contentDescription="@string/background_image"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/tv_title_details_top"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/joker_full"/>
+
 
         <TextView
             android:id="@+id/tv_title_details_top"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="13dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="14dp"
+            android:layout_alignParentTop="true"
             android:fontFamily="sans-serif-condensed"
             android:text="@string/textview"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView_details_top" />
+            android:textSize="25sp"/>
+
+        <TextView
+            android:id="@+id/genre_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_above="@id/date_top"
+            android:layout_toEndOf="@id/poster_top"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/genre"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/poster_top" />
+
+        <TextView
+            android:id="@+id/movie_genre_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/release_date_top"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toEndOf="@id/genre_top"
+            android:fontFamily="sans-serif"
+            android:text="@string/textview"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/poster_top" />
+
+        <TextView
+            android:id="@+id/date_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_alignBottom="@id/poster_top"
+            android:layout_toEndOf="@id/poster_top"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/release_date"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/poster_top" />
+
+        <TextView
+            android:id="@+id/release_date_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/poster_top"
+            android:layout_marginEnd="14dp"
+            android:layout_toEndOf="@id/date_top"
+            android:fontFamily="sans-serif"
+            android:text="@string/textview"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/poster_top" />
 
         <TextView
             android:id="@+id/tv_desc_details_top"
@@ -71,14 +138,15 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="14dp"
             android:layout_marginBottom="15dp"
+            android:layout_below="@id/poster_top"
+            android:fontFamily="sans-serif-light"
             android:text="@string/textview"
+            android:textAlignment="textStart"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
