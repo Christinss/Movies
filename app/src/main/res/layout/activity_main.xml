@@ -5,19 +5,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MovieListActivity"
+    android:background="@color/black">
 
-    <!-- This is the parent RecyclerView-->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/parent_recyclerview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/black"
+        app:titleTextColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271" />
+        app:layout_scrollFlags="scroll|enterAlways"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <TextView
+        android:id="@+id/tvPopularMovies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/popular"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPopularMovies" />
+
+    <TextView
+        android:id="@+id/tvTopRatedMovies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="top"
+        android:text="@string/top_rated"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewPop" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTopRatedMovies" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

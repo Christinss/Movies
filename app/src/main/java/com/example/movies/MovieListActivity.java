@@ -37,7 +37,7 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.parent_item);
+        setContentView(R.layout.activity_main);
 
         //Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
