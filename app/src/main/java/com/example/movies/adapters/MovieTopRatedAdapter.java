@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.movies.R;
-import com.example.movies.models.MovieModel;
+import com.example.movies.models.Movie;
 
 import java.util.List;
 
 public class MovieTopRatedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<MovieModel> mMoviesTop;
+    private List<Movie> mMoviesTop;
     private OnMovieListenerTop onMovieListenerTop;
 
     public MovieTopRatedAdapter(OnMovieListenerTop onMovieListenerTop) {
@@ -52,12 +52,12 @@ public class MovieTopRatedAdapter extends RecyclerView.Adapter<RecyclerView.View
         return 0;
     }
 
-    public void setMoviesTop(List<MovieModel> mMoviesTop) {
+    public void setMoviesTop(List<Movie> mMoviesTop) {
         this.mMoviesTop = mMoviesTop;
         notifyDataSetChanged();
     }
 
-    public MovieModel getSelectedMovie(int position) {
+    public Movie getSelectedMovie(int position) {
         if (mMoviesTop != null) {
             if (mMoviesTop.size() > 0) {
                 return mMoviesTop.get(position);

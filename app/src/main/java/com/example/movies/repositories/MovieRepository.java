@@ -2,7 +2,7 @@ package com.example.movies.repositories;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.movies.models.MovieModel;
+import com.example.movies.models.Movie;
 import com.example.movies.request.MovieApiClient;
 
 import java.util.List;
@@ -29,10 +29,10 @@ public class MovieRepository {
         movieApiClient = MovieApiClient.getInstance();
     }
 
-    public LiveData<List<MovieModel>> getPop() {
+    public LiveData<List<Movie>> getPop() {
         return movieApiClient.getMoviesPop();}
 
-    public LiveData<List<MovieModel>> getTop() {
+    public LiveData<List<Movie>> getTop() {
         return movieApiClient.getMoviesTop();}
 
     //2 - Calling the method in repository

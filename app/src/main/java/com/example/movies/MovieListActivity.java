@@ -1,7 +1,9 @@
 package com.example.movies;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,8 +16,10 @@ import com.example.movies.adapters.MoviePopularAdapter;
 import com.example.movies.adapters.MovieTopRatedAdapter;
 import com.example.movies.adapters.OnMovieListenerPop;
 import com.example.movies.adapters.OnMovieListenerTop;
-import com.example.movies.models.MovieModel;
+import com.example.movies.models.Movie;
 import com.example.movies.viewmodels.MovieListViewModel;
+
+import org.jetbrains.annotations.NotNull;
 
 public class MovieListActivity extends AppCompatActivity implements OnMovieListenerPop, OnMovieListenerTop {
 
@@ -30,11 +34,23 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
     //ViewModel
     private MovieListViewModel movieListViewModel;
 
+    private static final String BUNDLE_RECYCLER_LAYOUT = "recycler_layout";
+    private Parcelable savedRecyclerLayoutState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (savedInstanceState != null) {
+            savedRecyclerLayoutState = savedInstanceState.getParcelable(BUNDLE_RECYCLER_LAYOUT);
+            recyclerView_popular.getLayoutManager().onRestoreInstanceState(savedRecyclerLayoutState);
+        }
+
+        if (savedInstanceState != null) {
+            savedRecyclerLayoutState = savedInstanceState.getParcelable(BUNDLE_RECYCLER_LAYOUT);
+            recyclerView_top.getLayoutManager().onRestoreInstanceState(savedRecyclerLayoutState);
+        }
 
         //Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -66,7 +82,7 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         movieListViewModel.getPop().observe(this, movieModels -> {
             //Observing for any data change
             if (movieModels != null) {
-                for (MovieModel movieModel : movieModels) {
+                for (Movie movie : movieModels) {
                     moviePopularRecyclerAdapter.setMoviesPop(movieModels);
                 }
             }
@@ -79,7 +95,7 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         movieListViewModel.getTop().observe(this, movieModels -> {
             //Observing for any data change
             if (movieModels != null) {
-                for (MovieModel movieModel : movieModels) {
+                for (Movie movie : movieModels) {
                     movieTopRatedRecyclerAdapter.setMoviesTop(movieModels);
                 }
             }
@@ -138,5 +154,17 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
         startActivity(intent);
     }
 
+    @Override
+    protected void onSaveInstanceState(@NotNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(BUNDLE_RECYCLER_LAYOUT, recyclerView_popular.getLayoutManager()
+                .onSaveInstanceState());
 
+        outState.putParcelable(BUNDLE_RECYCLER_LAYOUT, recyclerView_top.getLayoutManager()
+                .onSaveInstanceState());
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

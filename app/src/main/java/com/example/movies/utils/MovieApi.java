@@ -1,6 +1,6 @@
 package com.example.movies.utils;
 
-import com.example.movies.models.MovieModel;
+import com.example.movies.models.Movie;
 import com.example.movies.response.MovieSearchResponse;
 
 import retrofit2.Call;
@@ -14,7 +14,7 @@ public interface MovieApi {
     //Search for movies
     //Search by ID
     @GET("3/movie/{movie_id}?")
-    Call<MovieModel> getMovie(
+    Call<Movie> getMovie(
             @Path("movie_id") int movie_id,
            @Query("api_key") String api_key
     );

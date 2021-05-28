@@ -3,7 +3,7 @@ package com.example.movies.viewmodels;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.movies.models.MovieModel;
+import com.example.movies.models.Movie;
 import com.example.movies.repositories.MovieRepository;
 
 import java.util.List;
@@ -19,11 +19,11 @@ public class MovieListViewModel extends ViewModel {
     }
 
     //getter
-    public LiveData<List<MovieModel>> getPop() {
+    public LiveData<List<Movie>> getPop() {
         return movieRepository.getPop();
     }
 
-    public LiveData<List<MovieModel>> getTop() {
+    public LiveData<List<Movie>> getTop() {
         return movieRepository.getTop();
     }
 

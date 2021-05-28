@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.movies.Network;
-import com.example.movies.models.MovieModel;
+import com.example.movies.models.Movie;
 import com.example.movies.response.MovieSearchResponse;
 import com.example.movies.utils.Credentials;
 
@@ -24,10 +24,10 @@ public class MovieApiClient {
     private static MovieApiClient instance;
 
     //LiveData for popular movies
-    private MutableLiveData<List<MovieModel>> mMoviesPop;
+    private MutableLiveData<List<Movie>> mMoviesPop;
 
     //LiveData for top rated movies
-    private MutableLiveData<List<MovieModel>> mMoviesTop;
+    private MutableLiveData<List<Movie>> mMoviesTop;
 
     //making Popular Runnable request
     private RetrieveMoviesRunnablePop retrieveMoviesRunnablePop;
@@ -48,10 +48,10 @@ public class MovieApiClient {
         mMoviesTop = new MutableLiveData<>();
     }
 
-    public LiveData<List<MovieModel>> getMoviesPop() {
+    public LiveData<List<Movie>> getMoviesPop() {
         return mMoviesPop;
     }
-    public LiveData<List<MovieModel>> getMoviesTop() {
+    public LiveData<List<Movie>> getMoviesTop() {
         return mMoviesTop;
     }
 
@@ -115,14 +115,14 @@ public class MovieApiClient {
                 }
 
                 if (response2.code() == 200) {
-                    List<MovieModel> list = new ArrayList<>(((MovieSearchResponse)response2.body()).getMovies());
+                    List<Movie> list = new ArrayList<>(((MovieSearchResponse)response2.body()).getMovies());
                     if (pageNumber == 1) {
                         //Sending data to live data
                         //PostValue: used for background thread
                         //setValue: not for background thread
                         mMoviesPop.postValue(list);
                     } else {
-                        List<MovieModel> currentMovies = mMoviesPop.getValue();
+                        List<Movie> currentMovies = mMoviesPop.getValue();
                         currentMovies.addAll(list);
                         mMoviesPop.postValue(currentMovies);
                     }
@@ -179,14 +179,14 @@ public class MovieApiClient {
                 }
 
                 if (response3.code() == 200) {
-                    List<MovieModel> list = new ArrayList<>(((MovieSearchResponse)response3.body()).getMovies());
+                    List<Movie> list = new ArrayList<>(((MovieSearchResponse)response3.body()).getMovies());
                     if (pageNumber == 1) {
                         //Sending data to live data
                         //PostValue: used for background thread
                         //setValue: not for background thread
                         mMoviesTop.postValue(list);
                     } else {
-                        List<MovieModel> currentMovies = mMoviesTop.getValue();
+                        List<Movie> currentMovies = mMoviesTop.getValue();
                         currentMovies.addAll(list);
                         mMoviesTop.postValue(currentMovies);
                     }

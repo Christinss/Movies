@@ -1,6 +1,6 @@
 package com.example.movies.response;
 
-import com.example.movies.models.MovieModel;
+import com.example.movies.models.Movie;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -16,9 +16,9 @@ public class MovieSearchResponse {
 
     @SerializedName("results")
     @Expose()
-    private List<MovieModel> movies;
+    private List<Movie> movies;
 
-    public List<MovieModel> getMovies() {
+    public List<Movie> getMovies() {
         return movies;
     }
 

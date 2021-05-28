@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.movies.R;
-import com.example.movies.models.MovieModel;
+import com.example.movies.models.Movie;
 
 import java.util.List;
 
 public class MoviePopularAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<MovieModel> mMoviesPop;
+    private List<Movie> mMoviesPop;
     private OnMovieListenerPop onMovieListenerPop;
 
     public MoviePopularAdapter(OnMovieListenerPop onMovieListenerPop) {
@@ -53,13 +53,13 @@ public class MoviePopularAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         return 0;
     }
 
-    public void setMoviesPop(List<MovieModel> mMoviesPop) {
+    public void setMoviesPop(List<Movie> mMoviesPop) {
         this.mMoviesPop = mMoviesPop;
         notifyDataSetChanged();
     }
 
     //Getting the id of the movie clicked
-    public MovieModel getSelectedMovie(int position) {
+    public Movie getSelectedMovie(int position) {
         if (mMoviesPop != null) {
             if (mMoviesPop.size() > 0) {
                 return mMoviesPop.get(position);

@@ -3,21 +3,19 @@ package com.example.movies.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
-import java.util.List;
 
 //model class for movies
-public class MovieModel implements Parcelable {
+public class Movie implements Parcelable {
 
     private String title;
     private String poster_path;
     private String backdrop_path;
     private String release_date;
-    private int movie_id;
-    private String genre;
+    private ArrayList<Genre> genres;
+
 
 
     @SerializedName("overview")
@@ -25,37 +23,37 @@ public class MovieModel implements Parcelable {
 
 
     //creating Constructor for properties
-    public MovieModel(String title, String poster_path, String backdrop_path, String release_date, String genre, int movie_id, String movie_overview) {
+    public Movie(String title, String poster_path, String backdrop_path, String release_date, ArrayList<Genre> genres, String movie_overview) {
         this.title = title;
         this.poster_path = poster_path;
         this.backdrop_path = backdrop_path;
         this.release_date = release_date;
-        this.genre = genre;
-        this.movie_id = movie_id;
+        this.genres = genres;
+        //this.genre = genres;
         this.movie_overview = movie_overview;
 
     }
 
-    protected MovieModel(Parcel in) {
+
+    protected Movie(Parcel in) {
         title = in.readString();
         poster_path = in.readString();
         backdrop_path = in.readString();
         release_date = in.readString();
-        genre = in.readString();
-        movie_id = in.readInt();
+        genres = in.readArrayList(Genre.class.getClassLoader());
         movie_overview = in.readString();
     }
 
 
-    public static final Creator<MovieModel> CREATOR = new Creator<MovieModel>() {
+    public static final Creator<Movie> CREATOR = new Creator<Movie>() {
         @Override
-        public MovieModel createFromParcel(Parcel in) {
-            return new MovieModel(in);
+        public Movie createFromParcel(Parcel in) {
+            return new Movie(in);
         }
 
         @Override
-        public MovieModel[] newArray(int size) {
-            return new MovieModel[size];
+        public Movie[] newArray(int size) {
+            return new Movie[size];
         }
     };
 
@@ -74,13 +72,9 @@ public class MovieModel implements Parcelable {
 
     public String getRelease_date() { return release_date; }
 
-    public String getGenre() { return genre; }
+    public ArrayList<Genre> getGenres() { return genres; }
 
     public String getMovie_overview() { return movie_overview; }
-
-    public int getMovie_id() { return movie_id; }
-
-
 
     @Override
     public int describeContents() {
@@ -93,21 +87,18 @@ public class MovieModel implements Parcelable {
         dest.writeString(poster_path);
         dest.writeString(backdrop_path);
         dest.writeString(release_date);
-        dest.writeString(genre);
-        dest.writeInt(movie_id);
+        dest.writeList(genres);
         dest.writeString(movie_overview);
     }
 
-
     @Override
     public String toString() {
-        return "MovieModel{" +
+        return "Movie{" +
                 "title='" + title + '\'' +
                 ", poster_path='" + poster_path + '\'' +
                 ", backdrop_path='" + backdrop_path + '\'' +
                 ", release_date='" + release_date + '\'' +
-                ", genre='" + genre + '\'' +
-                ", movie_id=" + movie_id +
+                ", genre='" + genres + '\'' +
                 ", movie_overview='" + movie_overview + '\'' +
                 '}';
     }
