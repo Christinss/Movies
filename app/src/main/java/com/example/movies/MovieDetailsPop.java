@@ -9,7 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
+import com.example.movies.models.Genre;
 import com.example.movies.models.Movie;
+
+import java.util.ArrayList;
 
 public class MovieDetailsPop extends AppCompatActivity {
 
@@ -47,12 +50,13 @@ public class MovieDetailsPop extends AppCompatActivity {
 
     private void GetDataFromIntent() {
         if (getIntent().hasExtra("movie")) {
+
             Movie movie = getIntent().getParcelableExtra("movie");
 
             titleDetailsPop.setText(movie.getTitle());
             releaseDatePop.setText(movie.getRelease_date());
             descDetailsPop.setText(movie.getMovie_overview());
-            //genresPop.setText("" + movie.getGenres());
+            genresPop.setText("" + movie.getGenres());
 
 
             Glide.with(this)

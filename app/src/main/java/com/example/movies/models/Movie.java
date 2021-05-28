@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.List;
 
 //model class for movies
 public class Movie implements Parcelable {
@@ -14,7 +15,7 @@ public class Movie implements Parcelable {
     private String poster_path;
     private String backdrop_path;
     private String release_date;
-    private ArrayList<Genre> genres;
+    private List<Genre> genres;
 
 
 
@@ -23,7 +24,7 @@ public class Movie implements Parcelable {
 
 
     //creating Constructor for properties
-    public Movie(String title, String poster_path, String backdrop_path, String release_date, ArrayList<Genre> genres, String movie_overview) {
+    public Movie(String title, String poster_path, String backdrop_path, String release_date, List<Genre> genres, String movie_overview) {
         this.title = title;
         this.poster_path = poster_path;
         this.backdrop_path = backdrop_path;
@@ -72,7 +73,7 @@ public class Movie implements Parcelable {
 
     public String getRelease_date() { return release_date; }
 
-    public ArrayList<Genre> getGenres() { return genres; }
+    public List<Genre> getGenres() { return genres; }
 
     public String getMovie_overview() { return movie_overview; }
 

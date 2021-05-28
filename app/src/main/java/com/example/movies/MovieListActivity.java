@@ -16,10 +16,14 @@ import com.example.movies.adapters.MoviePopularAdapter;
 import com.example.movies.adapters.MovieTopRatedAdapter;
 import com.example.movies.adapters.OnMovieListenerPop;
 import com.example.movies.adapters.OnMovieListenerTop;
+import com.example.movies.models.Genre;
 import com.example.movies.models.Movie;
 import com.example.movies.viewmodels.MovieListViewModel;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MovieListActivity extends AppCompatActivity implements OnMovieListenerPop, OnMovieListenerTop {
 
@@ -27,6 +31,7 @@ public class MovieListActivity extends AppCompatActivity implements OnMovieListe
     //RecyclerView
     private RecyclerView recyclerView_popular;
     private RecyclerView recyclerView_top;
+
 
     private MoviePopularAdapter moviePopularRecyclerAdapter;
     private MovieTopRatedAdapter movieTopRatedRecyclerAdapter;

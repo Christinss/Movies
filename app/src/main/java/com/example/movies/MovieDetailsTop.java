@@ -9,7 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
+import com.example.movies.models.Genre;
 import com.example.movies.models.Movie;
+
+import java.util.ArrayList;
 
 public class MovieDetailsTop extends AppCompatActivity {
     //Widgets
@@ -50,12 +53,13 @@ public class MovieDetailsTop extends AppCompatActivity {
 
     private void GetDataFromIntent() {
         if (getIntent().hasExtra("movie")) {
+
             Movie movie = getIntent().getParcelableExtra("movie");
 
             titleDetailsTop.setText(movie.getTitle());
             releaseDateTop.setText(movie.getRelease_date());
             descDetailsTop.setText(movie.getMovie_overview());
-            //genresTop.setText("" + movie.getGenres());
+            genresTop.setText("" + movie.getGenres());
 
 
 
